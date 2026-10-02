@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Oliva — Ristorante Italiano | QR Menü</title>
+<meta name="description" content="Casa Oliva İtalyan restoranı QR menü: pizza, taze makarna, sunumlu et yemekleri, şampanya, fresh ve alkolsüz içecekler. Aile ve iş yemekleri için şık-sade mekan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{
+  --cream:#faf7f1; --cream2:#f3ede1; --ink:#1c1a16; --muted:#6f6a60;
+  --gold:#b9975b; --gold-dark:#8f7440; --olive:#33402f; --line:rgba(28,26,22,.12);
+  --card:#fff; --shadow:0 12px 40px rgba(28,26,22,.10); --radius:18px;
+  --font-s:"Playfair Display",Georgia,serif; --font-b:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1); --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --ease-drawer:cubic-bezier(0.32,0.72,0,1);
+  --header-h:69px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 64px)}
+body{margin:0;font-family:var(--font-b);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.topbar{background:#141310;color:#e9e1d2;font-size:.8rem;padding:.5rem 1rem;display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.topbar b{color:var(--gold)}
+header.site{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);margin:0}
+.header-in{max-width:1100px;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:inherit}
+.logo-mark{width:44px;height:44px;border-radius:50%;background:#141310;color:var(--gold);display:grid;place-items:center;font-family:var(--font-s);font-size:1.3rem;border:1px solid var(--gold)}
+.logo small{display:block;font-size:.68rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.logo strong{font-family:var(--font-s);font-size:1.25rem;line-height:1}
+.search{flex:1;display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55rem .9rem;align-items:center;gap:.5rem;min-width:0}
+.search input{border:0;outline:0;flex:1;font-size:.95rem;background:transparent;min-width:0}
+.cart-btn{position:relative;border:0;background:#141310;color:#fff;border-radius:999px;padding:.65rem 1.1rem;font-weight:600;cursor:pointer;display:flex;gap:.5rem;align-items:center;white-space:nowrap}
+.cart-btn .count{background:var(--gold);color:#141310;border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.hero{max-width:1100px;margin:0 auto;padding:.8rem 1rem 0}
+.hero-card{position:relative;border-radius:24px;overflow:hidden;background:#141310;color:#fff;min-height:340px;display:flex;align-items:flex-end}
+.hero-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62}
+.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 20%,rgba(0,0,0,.72) 100%)}
+.hero-txt{position:relative;z-index:2;padding:2rem 1.5rem;max-width:680px}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#f0d9a8;border:1px solid rgba(240,217,168,.5);padding:.35rem .7rem;border-radius:999px;background:rgba(0,0,0,.3)}
+.hero-txt h1{font-family:var(--font-s);font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:.9rem 0 .6rem}
+.hero-txt h1 em{color:#f0d9a8;font-weight:500}
+.hero-txt p{margin:0 0 1.2rem;color:#e9e1d2;line-height:1.6}
+.hero-meta{display:flex;gap:.6rem;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);padding:.5rem .8rem;border-radius:999px;font-size:.82rem}
+.hero-actions{display:flex;gap:.6rem;margin-top:1.1rem;flex-wrap:wrap}
+.btn{border-radius:999px;padding:.75rem 1.2rem;font-weight:600;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-gold{background:var(--gold);color:#141310} .btn-gold:hover{background:#d0ae6e}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)}
+.masa-row{max-width:1100px;margin:0 auto;padding:.6rem 1rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.masa-box{flex:1;min-width:240px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7rem .9rem;display:flex;align-items:center;gap:.7rem}
+.masa-box label{font-size:.8rem;color:var(--muted)} .masa-box select,.masa-box input{border:0;outline:0;font-size:1rem;font-weight:700;background:transparent;width:100%}
+.chef{max-width:1100px;margin:1.4rem auto;padding:0 1rem}
+.chef-in{position:relative;overflow:hidden;background:#141310;color:#efe8d8;border:1px solid rgba(185,151,91,.4);border-radius:20px;padding:1.4rem 1.3rem;display:flex;gap:1.1rem;align-items:center;box-shadow:0 14px 40px rgba(20,19,16,.25)}
+.chef-in::before{content:"";position:absolute;width:280px;height:280px;right:-90px;top:-90px;background:radial-gradient(circle,rgba(185,151,91,.28),transparent 70%);pointer-events:none}
+.chef-in img{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(185,151,91,.18);position:relative;z-index:1}
+.chef-body{position:relative;z-index:1;min-width:0}
+.chef-eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#e6cf9a;font-weight:700}
+.chef-in h2{font-family:var(--font-s);font-size:1.45rem;line-height:1.15;letter-spacing:-0.01em;margin:.3rem 0 .15rem;color:#fff}
+.chef-meta{font-size:.78rem;letter-spacing:.06em;color:#b7a67e}
+.chef-in p{margin:.5rem 0 0;font-family:var(--font-s);font-style:italic;font-size:.98rem;line-height:1.6;color:#d8cfba}
+.chef-in a{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.85rem;font-weight:700;color:#141310;background:var(--gold);padding:.55rem 1rem;border-radius:999px;text-decoration:none}
+@media(max-width:560px){.chef-in{flex-direction:column;text-align:center;padding:1.5rem 1.1rem}.chef-in p{font-size:.92rem}}
+.cats{position:sticky;top:var(--header-h);z-index:40;background:rgba(250,247,241,.95);backdrop-filter:blur(10px);border-block:1px solid var(--line);margin:0}
+.cats-in{max-width:1100px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none}
+.cats-in::-webkit-scrollbar{display:none}
+.cat{white-space:nowrap;border:1px solid var(--line);background:#fff;padding:.55rem .9rem;border-radius:999px;font-size:.88rem;cursor:pointer}
+.cat.active{background:#141310;color:#fff;border-color:#141310}
+main{max-width:1100px;margin:0 auto;padding:1rem 1rem 6rem}
+.sec-head{display:flex;align-items:baseline;gap:.8rem;margin:2rem 0 1rem}
+.sec-head h2{font-family:var(--font-s);font-size:1.6rem;margin:0}
+.sec-head span{color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.header-in{flex-wrap:wrap}.search{order:3;flex-basis:100%}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;gap:.8rem;padding:.7rem;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.card img{width:112px;height:112px;object-fit:cover;border-radius:12px;flex-shrink:0}
+.card-body{flex:1;min-width:0;display:flex;flex-direction:column}
+.card-body h3{margin:0;font-size:1rem;line-height:1.3} .card-body h3 small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;font-style:italic}
+.desc{font-size:.83rem;color:var(--muted);line-height:1.5;margin:.35rem 0 .6rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.price{font-weight:700;font-size:1.02rem} .price small{font-weight:400;color:var(--muted);font-size:.75rem}
+.badge{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#f3ede1;color:var(--gold-dark);padding:.22rem .5rem;border-radius:999px;display:inline-block;margin-bottom:.3rem}
+.badge.chef{background:#141310;color:#f0d9a8} .badge.acili{background:#fde8e8;color:#a33} .badge.alkol{border:1px solid var(--gold);background:transparent}
+.add{display:flex;align-items:center;gap:.45rem;flex-shrink:0}
+.add button{width:36px;height:36px;min-width:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.25rem;font-weight:600;cursor:pointer;line-height:1;display:grid;place-items:center;padding:0;transition:transform 160ms var(--ease-out),background-color 160ms ease,color 160ms ease,border-color 160ms ease}
+.add button.plus{background:#141310;color:#fff;border-color:#141310}
+@media (hover:hover) and (pointer:fine){.add button.plus:hover{transform:scale(1.07)}.add button:active{transform:scale(.93)}}
+.qty{min-width:20px;text-align:center;font-weight:700}
+/* scroll-bazlı tekrar tetiklenebilir reveal: transform + opacity only */
+.reveal{opacity:0;transform:translateY(14px) scale(.98);transition:opacity 240ms var(--ease-out),transform 240ms var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:opacity 200ms ease}}
+.fab{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:60;max-width:560px;margin:0 auto;background:#141310;color:#fff;border-radius:16px;padding:.7rem .7rem .7rem .9rem;display:flex;align-items:center;gap:.8rem;box-shadow:var(--shadow);cursor:pointer;border:1px solid rgba(185,151,91,.5);text-transform:none;letter-spacing:normal;opacity:1;transform:translateY(0);visibility:visible;transition:opacity 240ms var(--ease-out),transform 240ms var(--ease-out),visibility 0s 0s}
+.fab.hidden{opacity:0;transform:translateY(16px);visibility:hidden;pointer-events:none;transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),visibility 0s 240ms}
+.fab-left{display:flex;align-items:center;gap:.65rem;flex:1;min-width:0}
+.fab-ic{width:40px;height:40px;flex-shrink:0;border-radius:12px;background:rgba(185,151,91,.2);border:1px solid rgba(185,151,91,.5);display:grid;place-items:center;color:#f0d9a8}
+.fab-ic svg{width:20px;height:20px} .fab-go svg{width:16px;height:16px}
+.fab-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+.fab-txt small{font-size:.75rem;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fab-txt b{color:#f0d9a8;font-size:1.05rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fab-go{flex-shrink:0;background:var(--gold);color:#141310;padding:.65rem 1.1rem;border-radius:999px;font-weight:800;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.fab,.fab.hidden{transition:opacity 200ms ease}.fab.hidden{transform:none}}
+.drawer{position:fixed;inset:0;z-index:80;visibility:hidden;pointer-events:none;transition:visibility 0s 400ms}
+.drawer.open{visibility:visible;pointer-events:auto;transition:visibility 0s 0s}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity 240ms var(--ease-out)}
+.drawer.open .scrim{opacity:1}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-width:620px;margin:0 auto;background:var(--cream);border-radius:22px 22px 0 0;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;transform:translateY(100%);transition:transform 350ms var(--ease-drawer)}
+.drawer.open .sheet{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.sheet{transform:none;transition:opacity 200ms ease;opacity:0}.drawer.open .sheet{opacity:1}.scrim{transition:opacity 200ms ease}}
+.sheet-head{padding:1.1rem 1.2rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.sheet-head h3{margin:0;font-family:var(--font-s);font-size:1.35rem}
+.sheet-body{padding:1rem 1.2rem;overflow:auto}
+.cart-item{display:flex;gap:.7rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.6rem;margin-bottom:.6rem}
+.cart-item img{width:56px;height:56px;border-radius:10px;object-fit:cover}
+.cart-item .n{flex:1;min-width:0}.cart-item .n strong{font-size:.9rem;display:block}.cart-item .n span{font-size:.8rem;color:var(--muted)}
+.sheet-foot{padding:1rem 1.2rem;border-top:1px solid var(--line);background:#fff}
+.row{display:flex;justify-content:space-between;margin:.25rem 0;font-size:.92rem}.row.total{font-size:1.1rem;font-weight:800}
+.field{margin:.6rem 0}.field label{font-size:.82rem;color:var(--muted);display:block;margin-bottom:.3rem}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem;font-size:.95rem;background:#fff;font-family:inherit}
+.order-btn{width:100%;background:var(--gold);border:0;border-radius:14px;padding:.95rem;font-size:1rem;font-weight:800;cursor:pointer}
+.order-btn:disabled{opacity:.5}
+.toasts{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;z-index:100;display:flex;flex-direction:column;gap:.5rem;width:min(420px,calc(100% - 2rem));pointer-events:none}
+.tst{pointer-events:auto;display:flex;align-items:center;gap:.65rem;background:#141310;color:#f5f1e8;border:1px solid rgba(185,151,91,.45);border-radius:14px;padding:.75rem .85rem;font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:.88rem;box-shadow:0 12px 32px rgba(0,0,0,.3);opacity:0;transform:translateY(12px) scale(.98);transition:opacity 240ms var(--ease-out),transform 240ms var(--ease-out)}
+.tst.in{opacity:1;transform:none}
+.tst.out{opacity:0;transform:translateY(8px) scale(.98)}
+.tst>svg{width:18px;height:18px;flex-shrink:0}
+.tst.ok>svg{color:#5fce7d} .tst.info>svg{color:#7db8f0} .tst.err>svg{color:#f07d7d}
+.tst span{flex:1;min-width:0;line-height:1.45}
+.tst button{margin-left:auto;background:transparent;border:0;color:#a9a294;cursor:pointer;display:grid;place-items:center;padding:.25rem;border-radius:8px}
+.tst button svg{width:14px;height:14px}
+@media (prefers-reduced-motion:reduce){.tst{transform:none;transition:opacity 200ms ease}.tst.out{transform:none}}
+.success{text-align:center;padding:1.5rem .5rem}.success .tick{width:72px;height:72px;border-radius:50%;background:#1d5c38;color:#fff;display:grid;place-items:center;font-size:2rem;margin:0 auto 1rem}
+footer{background:#141310;color:#cfc7b6;padding:2.5rem 1.2rem 7rem;margin-top:2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.5rem}
+@media(max-width:720px){.foot-in{grid-template-columns:1fr}}
+footer h4{font-family:var(--font-s);color:#fff;margin:0 0 .7rem} footer p,footer a{font-size:.9rem;line-height:1.7;color:#cfc7b6;text-decoration:none}
+.empty{background:#fff;border:1px dashed var(--line);border-radius:14px;padding:1.2rem;text-align:center;color:var(--muted)}
+svg.lucide{width:1.05em;height:1.05em;stroke-width:2;vertical-align:-0.15em;flex-shrink:0}
+.topbar span{display:inline-flex;align-items:center;gap:.35rem} .topbar svg.lucide{color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:.35rem}
+.cat{display:inline-flex;align-items:center;gap:.4rem}
+.search svg.lucide{color:var(--muted)}
+.empty svg.lucide{width:26px;height:26px;color:var(--gold-dark);margin-bottom:.3rem}
+.success .tick svg.lucide{width:34px;height:34px}
+.foot-in svg.lucide{color:var(--gold)}
+.order-btn{display:flex;align-items:center;justify-content:center;gap:.5rem}
+.social-fab{position:fixed;right:1rem;bottom:92px;z-index:55;display:flex;flex-direction:column;gap:.6rem}
+.soc{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform 160ms var(--ease-out)}
+.soc svg{width:24px;height:24px}
+.soc.wa{background:#25d366} .soc.ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+.soc:active{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.soc:hover{transform:scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.soc{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><span><i data-lucide="map-pin"></i> Nispetiye Cad. No:24, Etiler — İstanbul</span><span><i data-lucide="clock"></i> Her gün <b>12:00 – 23:00</b></span><span><i data-lucide="phone"></i> <b>0212 000 00 00</b></span></div>
+
+<header class="site">
+  <div class="header-in">
+    <a class="logo" href="#"><span class="logo-mark">O</span><span><small>Ristorante Italiano</small><strong>Casa Oliva</strong></span></a>
+    <div class="search"><i data-lucide="search"></i> <input id="search" placeholder="Menüde ara: pizza, trüf, şampanya..."></div>
+    <button class="cart-btn" id="openCart"><i data-lucide="shopping-basket"></i> Sepet <span class="count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-card">
+    <img class="bg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80&auto=format&fit=crop" alt="Casa Oliva salon">
+    <div class="hero-txt">
+      <span class="eyebrow">Aile • İş yemeği • Toplantı dostu</span>
+      <h1>Gerçek İtalyan mutfağı, <em>şık ama sade</em> bir sofrada.</h1>
+      <p>Odun fırını pizzalar, taze günlük makarnalar, sunumlu et yemekleri, şampanya kavı, fresh ve alkolsüz seçenekler. Masadan QR ile sipariş verebilirsiniz.</p>
+      <div class="hero-meta"><span class="pill"><i data-lucide="star"></i> 4.8 — 2.400+ yorum</span><span class="pill"><i data-lucide="timer"></i> Servis ~15 dk</span><span class="pill">🌿 Vejetaryen seçenekli</span></div>
+      <div class="hero-actions"><a class="btn btn-gold" href="#menu">Menüyü Gör <i data-lucide="arrow-down"></i></a><a class="btn btn-ghost" href="#bilgi"><i data-lucide="calendar-check"></i> Rezervasyon & İletişim</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="masa-row">
+  <div class="masa-box"><span style="font-size:1.4rem">🪑</span><div style="flex:1"><label>Masa numaranız (QR'dan geldiyseniz otomatik)</label><select id="masa"><option value="">Masa seçin…</option></select></div></div>
+  <div class="masa-box"><span style="font-size:1.4rem">🧾</span><div style="flex:1"><label>Sipariş türü</label><select id="tur"><option>Masada Ye</option><option>Paket</option></select></div></div>
+</div>
+
+<section class="chef reveal">
+  <div class="chef-in">
+    <img src="sef-bahar.jpg" alt="Şef Bahar Yılmaz" loading="lazy">
+    <div class="chef-body"><span class="chef-eyebrow">Şefin masasından</span><h2>Şef Bahar Yılmaz</h2><div class="chef-meta">21 yaşında &bull; Taze makarna &amp; odun fırını</div><p>&ldquo;Makarna günlük açılır, gerisi teferruat. İmza tabağım Trüflü Tagliatelle&rsquo;yi parmesan tekerinde, masada servis ediyoruz.&rdquo;</p><a href="#menu">Menüyü gör <i data-lucide="arrow-down"></i></a></div>
+  </div>
+</section>
+
+<nav class="cats"><div class="cats-in" id="cats"></div></nav>
+
+<main id="menu"></main>
+
+<div class="fab hidden" id="fab" role="button" tabindex="0" aria-label="Sepeti aç"><div class="fab-left"><span class="fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span><span class="fab-txt"><small>Sepet &bull; <span id="fabCount">0</span> &uuml;r&uuml;n</small><b id="fabTotal">₺0</b></span></div><span class="fab-go">Sepeti A&ccedil; <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+
+<div class="social-fab"><a class="soc wa" href="https://wa.me/902120000000?text=Merhaba%2C%20masa%20i%C3%A7in%20sipari%C5%9F%20vermek%20istiyorum" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><i class="fa-brands fa-whatsapp"></i></a><a class="soc ig" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram sayfamız"><i class="fa-brands fa-instagram"></i></a></div>
+
+<div class="drawer" id="drawer">
+  <div class="scrim" id="closeCart"></div>
+  <div class="sheet">
+    <div class="sheet-head"><h3>Sepetiniz</h3><button id="closeCart2" style="border:1px solid var(--line);background:#fff;border-radius:999px;padding:.4rem .8rem;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem">Kapat <i data-lucide="x"></i></button></div>
+    <div class="sheet-body">
+      <div id="cartItems"></div>
+      <div class="field"><label>Masa No</label><input id="masa2" placeholder="örn. M12"></div>
+      <div class="field"><label>Not (alerji, pişirme derecesi...)</label><textarea id="not" rows="2" placeholder="örn. Et az pişmiş olsun, ceviz alerjim var"></textarea></div>
+    </div>
+    <div class="sheet-foot">
+      <div class="row"><span>Ara toplam</span><span id="sub">₺0</span></div>
+      <div class="row"><span>Servis (%10)</span><span id="serv">₺0</span></div>
+      <div class="row total"><span>Toplam</span><span id="grand">₺0</span></div>
+      <div class="field"><button class="order-btn" id="orderBtn"><i data-lucide="send"></i> Siparişi Masaya Gönder</button></div>
+      <div style="font-size:.78rem;color:var(--muted);text-align:center">Ödeme masada alınır • Garson çağırmak için: 0212 000 00 00</div>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<footer id="bilgi">
+  <div class="foot-in">
+    <div><h4>Casa Oliva</h4><p>Şık ama sade: aile yemekleri, iş toplantıları ve kutlamalar için sessiz salon + toplantı masaları.<br><br><i data-lucide="map-pin"></i> Nispetiye Cad. No:24, Etiler<br><i data-lucide="clock"></i> 12:00 – 23:00 (Mutfak 22:00'e kadar)<br><i data-lucide="phone"></i> 0212 000 00 00<br><i data-lucide="mail"></i> rezervasyon@casaoliva.example</p></div>
+    <div><h4>İyi bilin</h4><p>• Tüm makarnalar günlük taze açılır<br>• Etler dinlendirilmiş, sunumlu servis<br>• 18 yaş altı alkollü servis yok<br>• Fiyatlara KDV dahil, servis %10</p></div>
+    <div><h4>QR Menü</h4><p>Bu sayfayı masadaki QR ile açtınız. Telefonunuza indirme gerekmez. Menü her gün 11:30'da güncellenir. Şef önerileri için garsona danışın.</p></div>
+  </div>
+</footer>
+
+<script>
+const IMG = (id)=>`https://images.unsplash.com/${id}?w=600&q=80&auto=format&fit=crop`;
+const CATS = [
+  {id:'antipasti', ad:'Antipasti', alt:'Başlangıçlar', ic:'salad'},
+  {id:'pizza', ad:'Pizza al Forno', alt:'Odun fırını', ic:'pizza'},
+  {id:'pasta', ad:'Pasta Fresca', alt:'Taze makarna', ic:'utensils'},
+  {id:'et', ad:'Secondi di Carne', alt:'Sunumlu etler', ic:'beef'},
+  {id:'tatli', ad:'Dolci', alt:'Tatlılar', ic:'cake-slice'},
+  {id:'sampanya', ad:'Şampanya & Alkollü', alt:'Wine & bar', ic:'wine'},
+  {id:'fresh', ad:'Fresh & Detox', alt:'Taze sıkım', ic:'cup-soda'},
+  {id:'alkolsuz', ad:'Alkolsüz', alt:'Soft içecekler', ic:'coffee'},
+];
+function icons(){ if(window.lucide) lucide.createIcons(); }
+const MENU = [
+ // ANTIPASTI
+ {id:1,cat:'antipasti',ad:'Bruschetta al Pomodoro',tr:'Domatesli Bruschetta',desc:'Ekşi mayalı ekmek, cherry domates, fesleğen, sarımsaklı zeytinyağı.',fiyat:320,img:IMG('photo-1572695157366-5e585ab2b69f'),tag:'Vejetaryen'},
+ {id:2,cat:'antipasti',ad:'Burrata Pugliese',tr:'Burrata, roka, parma jambon',desc:'Kremalı burrata, 12 ay parmesan, roka, sızma zeytinyağı.',fiyat:520,img:IMG('photo-1607532941433-304659e8198a'),tag:'Şef Önerisi'},
+ {id:3,cat:'antipasti',ad:'Carpaccio di Manzo',tr:'Dana Carpaccio',desc:'İnce dilim bonfile, kapari, roka, limon, parmesan cipsi. Sunumlu servis.',fiyat:580,img:IMG('photo-1625944230945-1b7dd3b949ab'),tag:'Sunumlu'},
+ {id:4,cat:'antipasti',ad:'Tagliere Misto',tr:'İtalyan Paylaşım Tabağı (2 kişilik)',desc:'Parma, mortadella, grissini, zeytin, peynir seçkisi. İş toplantıları için ideal.',fiyat:750,img:IMG('photo-1541014741259-de529411b96a'),tag:'2 Kişilik'},
+ // PIZZA
+ {id:5,cat:'pizza',ad:'Margherita D.O.P.',tr:'Margherita',desc:'San Marzano domates, fior di latte mozzarella, fesleğen, odun fırını.',fiyat:480,img:IMG('photo-1574071318508-1cdbab80d002'),tag:'Vejetaryen'},
+ {id:6,cat:'pizza',ad:'Diavola',tr:'Acılı Sucuklu Pizza',desc:'Napoli sucuk, mozzarella, acı bal, domates sos.',fiyat:560,img:IMG('photo-1628840042765-356cda07504e'),tag:'Acılı'},
+ {id:7,cat:'pizza',ad:'Quattro Formaggi',tr:'Dört Peynirli',desc:'Gorgonzola, mozzarella, parmesan, provola, ceviz, bal.',fiyat:590,img:IMG('photo-1571407970349-bc81e7e96d47'),tag:''},
+ {id:8,cat:'pizza',ad:'Prosciutto e Rucola',tr:'Parma Jambonlu & Rokalı',desc:'Parma jambon, roka, cherry domates, parmesan, limonlu yağ.',fiyat:620,img:IMG('photo-1595854341625-f33ee10dbf94'),tag:'Şef Önerisi'},
+ // PASTA
+ {id:9,cat:'pasta',ad:'Tagliatelle al Tartufo',tr:'Trüflü Tagliatelle',desc:'Taze tagliatelle, trüf kreması, parmesan, tereyağı. Masada parmesan tekerinde servis opsiyonu.',fiyat:680,img:IMG('photo-1621996346565-e3dbc646d9a9'),tag:'Sunumlu'},
+ {id:10,cat:'pasta',ad:'Spaghetti Carbonara',tr:'Carbonara',desc:'Guanciale, pecorino, yumurta sarısı, karabiber. Kremasız, orijinal Roma usulü.',fiyat:540,img:IMG('photo-1612874742237-6526221588e3'),tag:''},
+ {id:11,cat:'pasta',ad:'Lasagna della Casa',tr:'Ev Lazanyası',desc:'Yavaş pişmiş dana ragù, beşamel, 3 peynir, fırında gratine.',fiyat:560,img:IMG('photo-1619895092538-128341789043'),tag:'Aile Boyu'},
+ {id:12,cat:'pasta',ad:'Penne all’Arrabbiata',tr:'Arrabbiata (Acılı)',desc:'Acılı domates sos, sarımsak, fesleğen. Vejetaryen yapılabilir.',fiyat:460,img:IMG('photo-1621996346565-e3dbc646d9a9'),tag:'Vejetaryen'},
+ // ET
+ {id:13,cat:'et',ad:'Bistecca alla Fiorentina',tr:'Floransa Usulü Dana Antrikot (2 kişilik)',desc:'T-bone, 28 gün dinlendirilmiş, közde mühürlü. Masada dilimlenerek sunulur.',fiyat:2400,img:IMG('photo-1544025162-d76694265947'),tag:'Sunumlu'},
+ {id:14,cat:'et',ad:'Filetto al Pepe Verde',tr:'Yeşil Biber Soslu Bonfile',desc:'Izgara bonfile, yeşil biber-krema sos, trüf patates püresi.',fiyat:980,img:IMG('photo-1600891964092-4316c288032e'),tag:'Şef Önerisi'},
+ {id:15,cat:'et',ad:'Agnello al Forno',tr:'Fırında Kuzu Kol',desc:'7 saat ağır ateşte kuzu, biberiye jus, fırın sebzeler.',fiyat:890,img:IMG('photo-1544025162-d76694265947'),tag:''},
+ {id:16,cat:'et',ad:'Pollo al Marsala',tr:'Marsalalı Tavuk',desc:'Tavuk supreme, marsala mantar sos, ızgara polenta.',fiyat:620,img:IMG('photo-1598103442097-8b74394b95c6'),tag:''},
+ // TATLI
+ {id:17,cat:'tatli',ad:'Tiramisù Classico',tr:'Klasik Tiramisu',desc:'Savoiardi, mascarpone, espresso, kakao. Günlük yapılır.',fiyat:320,img:IMG('photo-1571877227200-a0d98ea607e9'),tag:''},
+ {id:18,cat:'tatli',ad:'Panna Cotta',tr:'Çilekli Panna Cotta',desc:'Vanilyalı panna cotta, taze çilek sosu.',fiyat:300,img:IMG('photo-1488477181946-6428a02917d3'),tag:''},
+ {id:19,cat:'tatli',ad:'Profiterol al Cioccolato',tr:'Çikolatalı Profiterol',desc:'Fındık kremalı profiterol, sıcak Belçika çikolatası masada dökülür.',fiyat:340,img:IMG('photo-1551024506-0bccd828d307'),tag:'Sunumlu'},
+ // ALKOLLÜ
+ {id:20,cat:'sampanya',ad:'Prosecco DOC',tr:'Prosecco (Kadeh / Şişe)',desc:'Veneto, brut. Kadeh 450₺ / Şişe 1800₺. Kutlama ve iş yemekleri için.',fiyat:450,img:IMG('photo-1547595628-c61a29f496f0'),tag:'Alkollü'},
+ {id:21,cat:'sampanya',ad:'Champagne Brut',tr:'Şampanya Brut (Şişe)',desc:'Fransız brut şampanya, buz kovasında masada servis.',fiyat:5200,img:IMG('photo-1578911373434-0cb395d2cbfb'),tag:'Alkollü'},
+ {id:22,cat:'sampanya',ad:'Chianti Classico',tr:'Chianti Kırmızı (Kadeh)',desc:'Toskana, sangiovese. Et yemekleriyle eşleşir.',fiyat:480,img:IMG('photo-1510812431401-41d2bd2722f3'),tag:'Alkollü'},
+ {id:23,cat:'sampanya',ad:'Aperol Spritz',tr:'Aperol Spritz',desc:'Aperol, prosecco, soda, portakal. İtalyan klasiği.',fiyat:520,img:IMG('photo-1551538827-9c037cb4f32a'),tag:'Alkollü'},
+ // FRESH
+ {id:24,cat:'fresh',ad:'Limonata Fresca',tr:'Taze Limonata (Nane & Zencefil)',desc:'Günlük sıkım limon, nane, az şeker. Sürahisi 650₺.',fiyat:220,img:IMG('photo-1621263764928-df1444c5e859'),tag:'Taze'},
+ {id:25,cat:'fresh',ad:'Arancia Rossa',tr:'Kan Portakallı Fresh',desc:'Kan portakalı + nar, C vitamini. Taze sıkım.',fiyat:240,img:IMG('photo-1600271886742-f049cd451bba'),tag:'Taze'},
+ {id:26,cat:'fresh',ad:'Detox Verde',tr:'Yeşil Detox',desc:'Elma, salatalık, ıspanak, limon, zencefil. Şekersiz.',fiyat:260,img:IMG('photo-1610970881699-44a5587cabec'),tag:'Şekersiz'},
+ // ALKOLSUZ
+ {id:27,cat:'alkolsuz',ad:'Acqua Minerale',tr:'San Pellegrino (750ml)',desc:'İtalyan mineralli su.',fiyat:180,img:IMG('photo-1548839140-29a749e1cf4d'),tag:''},
+ {id:28,cat:'alkolsuz',ad:'Coca-Cola / Zero',tr:'Cola Çeşitleri',desc:'330ml şişe, buz ve limon ile.',fiyat:150,img:IMG('photo-1554866585-cd94860890b7'),tag:''},
+ {id:29,cat:'alkolsuz',ad:'Espresso / Cappuccino',tr:'İtalyan Kahvesi',desc:'Lavazza çekirdek, espresso 140₺ / cappuccino 180₺.',fiyat:140,img:IMG('photo-1509042239860-f550ce710b93'),tag:''},
+ {id:30,cat:'alkolsuz',ad:'Virgin Mojito',tr:'Alkolsüz Mojito',desc:'Nane, lime, soda, esmer şeker. Ferahlatıcı.',fiyat:230,img:IMG('photo-1551538827-9c037cb4f32a'),tag:''},
+];
+const fmt = n => '₺'+n.toLocaleString('tr-TR');
+let cart = JSON.parse(localStorage.getItem('casa_cart')||'{}');
+let activeCat='all', query='';
+
+// masa seçenekleri M1-M30 + Teras + Salon
+const masaSel=document.getElementById('masa');
+['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','T1','T2','Toplantı-1','Toplantı-2'].forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=(m.startsWith('M')?'Masa ':'')+m;masaSel.appendChild(o);});
+const qp=new URLSearchParams(location.search).get('masa'); if(qp){masaSel.value=qp; document.getElementById('masa2').value=qp;}
+
+function renderCats(){
+  const box=document.getElementById('cats'); box.innerHTML='';
+  const mk=(id,ad,ic)=>{const b=document.createElement('button');b.className='cat'+(activeCat===id?' active':'');b.innerHTML=`<i data-lucide="${ic}"></i><span>${ad}</span>`;b.onclick=()=>{activeCat=id;renderCats();renderMenu();document.getElementById('menu').scrollIntoView({behavior:'smooth'});};box.appendChild(b);};
+  mk('all','Tümü','sparkles');
+  CATS.forEach(c=>mk(c.id,c.ad,c.ic));
+  icons();
+}
+function badgeCls(t){ if(!t) return ''; if(t.includes('Şef')||t.includes('Sunumlu')) return 'badge chef'; if(t.includes('Acılı')) return 'badge acili'; if(t.includes('Alkoll')) return 'badge alkol'; return 'badge';}
+function renderMenu(){
+  const main=document.getElementById('menu'); main.innerHTML='';
+  const q=query.toLocaleLowerCase('tr');
+  CATS.forEach(c=>{
+    if(activeCat!=='all' && activeCat!==c.id) return;
+    const items=MENU.filter(m=>m.cat===c.id && (!q || (m.ad+m.tr+m.desc).toLocaleLowerCase('tr').includes(q)));
+    if(!items.length) return;
+    const h=document.createElement('div');h.className='sec-head';h.id='sec-'+c.id;h.innerHTML=`<h2>${c.ad}</h2><span>${c.alt} • ${items.length} ürün</span>`;main.appendChild(h);
+    const g=document.createElement('div');g.className='grid';
+    items.forEach(m=>{
+      const qty=cart[m.id]||0;
+      const d=document.createElement('div');d.className='card reveal';d.dataset.id=m.id;
+      d.innerHTML=`<img loading="lazy" src="${m.img}" alt="${m.tr}" onerror="this.src='${IMG('photo-1414235077428-338989a2e8c0')}'">
+      <div class="card-body">${m.tag?`<span class="${badgeCls(m.tag)}">${m.tag}</span>`:''}
+      <h3>${m.ad}<small>${m.tr}</small></h3><div class="desc">${m.desc}</div>
+      <div class="card-foot"><div class="price">${fmt(m.fiyat)}<br><small>KDV dahil</small></div>
+      <div class="add" data-add="${m.id}">${addHTML(m.id,qty)}</div></div></div>`;
+      g.appendChild(d);
+    });
+    main.appendChild(g);
+  });
+  if(!main.innerHTML) main.innerHTML=`<div class="empty"><i data-lucide="utensils"></i><br>Aramanıza uygun ürün bulunamadı.<br>Farklı bir kelime deneyin.</div>`;
+  observeReveals(); icons();
+}
+// Scroll-bazlı tekrar tetiklenebilir reveal: giriş/çıkışta toggle, stagger 40ms
+let revealObs=null;
+function observeReveals(){
+  if(revealObs) revealObs.disconnect();
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els=document.querySelectorAll('.reveal:not(.in)');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  revealObs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const i=[...e.target.parentElement.children].indexOf(e.target);
+        e.target.style.transitionDelay=Math.min((i%4)*40,160)+'ms';
+        e.target.classList.add('in');
+      }else{
+        e.target.classList.remove('in');
+        e.target.style.transitionDelay='0ms';
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+  document.querySelectorAll('.sec-head').forEach(el=>{el.classList.add('reveal');revealObs.observe(el);});
+}
+// Sticky boşluğu kapat: header gerçek yüksekliğini cats'e aktar
+function syncHeader(){
+  const h=document.querySelector('header.site');
+  if(h) document.documentElement.style.setProperty('--header-h',h.offsetHeight+'px');
+}
+window.addEventListener('resize',syncHeader);
+function addHTML(id,qty){return `${qty?`<button onclick="chg(${id},-1)" aria-label="Azalt">−</button><span class="qty">${qty}</span>`:''}<button class="plus" onclick="chg(${id},1)" aria-label="Sepete ekle">+</button>`;}
+function refreshQty(id){
+  const qty=cart[id]||0;
+  document.querySelectorAll(`[data-add="${id}"]`).forEach(el=>{el.innerHTML=addHTML(id,qty);});
+}
+window.chg=(id,d)=>{
+  cart[id]=(cart[id]||0)+d; if(cart[id]<=0) delete cart[id];
+  localStorage.setItem('casa_cart',JSON.stringify(cart));
+  refreshQty(id); renderCart();
+  if(d>0) toast.success('Sepete eklendi'); else toast.message('Sepet güncellendi');
+};
+const TICON={
+ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+err:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'};
+function showToast(msg,type='ok',ms=2600){
+  const box=document.getElementById('toasts'); if(!box) return;
+  while(box.children.length>=3) box.firstChild.remove();
+  const el=document.createElement('div'); el.className='tst '+type;
+  el.innerHTML=`${TICON[type]||TICON.ok}<span></span><button type="button" aria-label="Bildirimi kapat">${TICON.x}</button>`;
+  el.querySelector('span').textContent=msg;
+  const kill=()=>{clearTimeout(el._t); el.classList.remove('in'); el.classList.add('out'); setTimeout(()=>el.remove(),250);};
+  el.querySelector('button').onclick=kill;
+  box.appendChild(el);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
+  el._t=setTimeout(kill,ms);
+}
+const toast={success:(m)=>showToast(m,'ok'),message:(m)=>showToast(m,'info'),error:(m)=>showToast(m,'err')};
+function totals(){let s=0,n=0;for(const[k,v]of Object.entries(cart)){const m=MENU.find(x=>x.id==k);if(m){s+=m.fiyat*v;n+=v;}}const serv=Math.round(s*0.10);return{sub:s,serv,n,grand:s+serv};}
+function renderCart(){
+  const t=totals();
+  document.getElementById('cartCount').textContent=t.n;
+  document.getElementById('fabCount').textContent=t.n;
+  document.getElementById('fabTotal').textContent=fmt(t.grand);
+  document.getElementById('fab').classList.toggle('hidden',t.n===0);
+  document.getElementById('sub').textContent=fmt(t.sub);
+  document.getElementById('serv').textContent=fmt(t.serv);
+  document.getElementById('grand').textContent=fmt(t.grand);
+  const box=document.getElementById('cartItems');
+  if(!t.n){box.innerHTML=`<div class="empty"><i data-lucide="shopping-basket"></i><br>Sepet boş. Menüden bir şeyler ekleyin.</div>`;document.getElementById('orderBtn').disabled=true;return;}
+  document.getElementById('orderBtn').disabled=false;
+  box.innerHTML=Object.entries(cart).map(([k,v])=>{const m=MENU.find(x=>x.id==k);if(!m)return '';return `<div class="cart-item"><img src="${m.img}"><div class="n"><strong>${m.ad}</strong><span>${m.tr} • ${fmt(m.fiyat)}</span></div><div class="add"><button onclick="chg(${m.id},-1)">−</button><span class="qty">${v}</span><button class="plus" onclick="chg(${m.id},1)">+</button></div></div>`}).join('');
+  icons();
+}
+const drawer=document.getElementById('drawer');
+document.getElementById('openCart').onclick=()=>{drawer.classList.add('open');renderCart();};
+document.getElementById('fab').onclick=()=>{drawer.classList.add('open');renderCart();};
+document.getElementById('fab').onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();drawer.classList.add('open');renderCart();}};
+document.getElementById('closeCart').onclick=()=>drawer.classList.remove('open');
+document.getElementById('closeCart2').onclick=()=>drawer.classList.remove('open');
+document.getElementById('search').addEventListener('input',e=>{query=e.target.value;renderMenu();});
+document.getElementById('orderBtn').onclick=()=>{
+  const t=totals(); const masa=document.getElementById('masa2').value||masaSel.value||'—';
+  const tur=document.getElementById('tur').value; const not=document.getElementById('not').value;
+  const no='CO-'+Math.floor(1000+Math.random()*9000);
+  document.querySelector('.sheet-body').innerHTML=`<div class="success"><div class="tick"><i data-lucide="check"></i></div><h2 style="font-family:var(--font-s);margin:.2rem 0">Sipariş alındı!</h2><p style="color:var(--muted)">Sipariş No: <b style="color:#111">${no}</b><br>${tur} • Masa: <b>${masa}</b><br>Toplam: <b>${fmt(t.grand)}</b>${not?`<br>Not: ${not}`:''}</p><p style="font-size:.88rem;color:var(--muted)">Garsonunuz siparişi onaylayacak. Ortalama hazırlık 15 dk.<br>Afiyet olsun!</p><button class="order-btn" onclick="location.reload()">Yeni Sipariş</button></div>`;
+  icons();
+  cart={};localStorage.removeItem('casa_cart');
+  document.querySelectorAll('[data-add]').forEach(el=>{el.innerHTML=addHTML(el.dataset.add,0);});
+  renderCart();
+};
+renderCats();renderMenu();renderCart();syncHeader();icons();
+setTimeout(syncHeader,300);
+</script>
+</body>
+</html>
